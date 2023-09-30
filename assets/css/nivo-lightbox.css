@@ -26,6 +26,26 @@
 	visibility: visible;
 	opacity: 1;
 }
+/* Zoom-in effect on hover */
+.nivo-lightbox-prev,
+.nivo-lightbox-next,
+.nivo-lightbox-close {
+    transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
+}
+
+.nivo-lightbox-prev:hover,
+.nivo-lightbox-next:hover,
+.nivo-lightbox-close:hover {
+    transform: scale(1.1); /* Zoom in on hover */
+}
+
+/* Zoom-out effect on unhover */
+.nivo-lightbox-prev:not(:hover),
+.nivo-lightbox-next:not(:hover),
+.nivo-lightbox-close:not(:hover) {
+    transform: scale(1); /* Zoom out when not hovered */
+}
+
 .nivo-lightbox-wrap  {
 	position: absolute;
 	top: 10%;
