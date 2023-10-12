@@ -96,7 +96,8 @@ window.addEventListener("scroll", function () {
         }, 600);
         return false;
       });
-
+  
+      
 
 
   });      

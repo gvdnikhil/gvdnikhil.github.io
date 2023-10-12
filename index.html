@@ -7,7 +7,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<title>Nikhilgvd</title>
+		<link rel="icon" href= 
+		"assets/img/about/favicon.png" 
+				  type="favicon"> 
 
+				  
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" >
 		<!-- Fonts -->
@@ -31,7 +35,11 @@
 
 	</head>
 	<body>
+		<div class="loading-overlay">
+			<div class="loading-spinner"></div>
+		</div>
 
+		
 		<!-- Header Area wrapper Starts -->
 		<header id="header-wrap">
 			<!-- Navbar Start -->
@@ -45,7 +53,7 @@
 							<span class="icon-menu"></span>
 							<span class="icon-menu"></span>
 						</button>
-						<a href="index.html" class="navbar-brand"> <h1>Nikhil</h1><!-- <img src="assets/img/logo.png" alt=""> --></a>
+						<a href="index.html" class="navbar-brand"> <h1>Nikhilgvd</h1><!-- <img src="assets/img/logo.png" alt=""> --></a>
 					</div>
 					<div class="collapse navbar-collapse" id="main-navbar">
 						<ul class="onepage-nev navbar-nav mr-auto w-100 justify-content-end clearfix">
@@ -112,7 +120,7 @@
 						<div class="col-md-12 col-sm-12 text-center">
 							<div class="contents">
 								<h5 class="script-font wow fadeInUp" data-wow-delay="0.2s">Hi I'M</h5>
-								<h2 class="head-title wow fadeInUp" data-wow-delay="0.4s">Nikhil</h2>
+								<h2 class="head-title wow fadeInUp" data-wow-delay="0.4s">Nikhilgvd</h2>
 								<p class="script-font wow fadeInUp" data-wow-delay="0.6s">Software Developer   Full Stack WEb-Developer   Machine Learning Engineer</p>
 								<ul class="social-icon wow fadeInUp" data-wow-delay="0.8s">
 									
@@ -157,7 +165,7 @@
 							<p>I'm <b>Nikhilgvd </b></p>
 							<div class="about-profile">
 								<ul class="admin-profile">
-									<li><span class="pro-title"> Name </span> <span class="pro-detail">Nikhil</span></li>
+									<li><span class="pro-title"> Name </span> <span class="pro-detail">Nikhilgvd</span></li>
 									<li><span class="pro-title"> Age </span> <span class="pro-detail">21 Years</span></li>
 									<li><span class="pro-title"> Country </span> <span class="pro-detail">INDIA</span></li>
 									<li><span class="pro-title"> Location </span> <span class="pro-detail">Tirupati</span></li>
@@ -366,16 +374,38 @@
 	
 					<div class="col-lg-6">
 						<!-- form fields -->
-						<form method="post">
-							<input id="Name" type="text" class="form-control form-control-lg" placeholder="Name">
-							<input id="Email" type="email" class="form-control mt-3" placeholder="Email">
-							<input id="Subject" type="text" class="form-control mt-3" placeholder="Subject">
+						<form onsubmit="sendEmail(); return false;">
+							<input id="name" type="text" class="form-control form-control-lg" placeholder="Name">
+							<input id="email" type="email" class="form-control mt-3" placeholder="Email">
+							<input id="subject" type="text" class="form-control mt-3" placeholder="Subject">
 							<div class="mb-3 mt-3">
-								<textarea id="ProjectDetails" class="form-control" rows="5" id="comment" name="text" placeholder="ProjectDetails"></textarea>
+								<textarea id="message" class="form-control" rows="4" name="text" placeholder="Message"></textarea>
 							</div>
+					
+							<button type="submit" class="btn btn-success mt-3">Contact Me</button>
 						</form>
-						<button id="btn" type="button" class="btn btn-success mt-3">Contact Me</button>
 					</div>
+					<script src="path-to-emailjs-library.js"></script>
+
+					<script>
+						function sendEmail(){
+									Email.send({
+										Host : "smtp-relay.brevo.com",
+									Username: "gvdnikhil@gmail.com",
+									Password: "F90QAK4EUvN7rLHO",
+									To : 'gvdnikhil@gmail.com',
+									From: "gvdnikhil@gmail.com",
+									Subject: "New Contact Form Enquiry",
+									Body: "Name: "+ document.getElementById("name").value
+									+ "<br> Email: " + document.getElementById("email").value
+									
+									
+									+ "<br> Message: "+ document.getElementById("message").value
+									}).then(
+									message => alert("Message Sent Succesfully") 
+									);
+							}
+					</script>
 	
 				</div>
 			</div>
@@ -404,7 +434,7 @@
 									<a class="twitter" href="https://github.com/gvdnikhil"target="_blank"><i class="icon-social-twitter"></i></a>
 								</li>
 							</ul>
-							<p>Copyright © 2023  Nikhil All Right Reserved</p>
+							<p>Copyright © 2023  Nikhilgvd All Right Reserved</p>
 						</div>
 					</div>
 				</div>
@@ -433,32 +463,10 @@
 		<script src="assets/js/form-validator.min.js"></script>
 		<script src="assets/js/contact-form-script.min.js"></script>
 		<script src="assets/js/map.js"></script>
-		<script src=""></script>
 		<script src="https://smtpjs.com/v3/smtp.js">
 		</script>
-		<script>
-			var btn = document.getElementById('btn');
-			btn.addEventListener('click', function (e) {
-				e.preventDefault();
-				var name = document.getElementById('Name').value;
-				var email = document.getElementById('Email').value;
-				var subject = document.getElementById('Subject').value;
-				var projectDetails = document.getElementById('ProjectDetails').value; // Use a different variable for project details
-				var body = 'Name: ' + name + '<br/> Email: ' + email + '<br/> Subject: ' + subject + '<br/> ProjectDetails: ' + projectDetails;
 		
-				Email.send({
-					SecureToken: "5289d314-490d-4cc3-9f06-77cac4cdf10e",
-					To: 'gvdnikhil@gmail.com',
-					From: "gvdnikhil@website.com",
-					Subject: "Contact Message",
-					Body: body
-				}).then(
-					function (message) {
-						alert(message);
-					}
-				);
-			});
-		</script>
+		
 
 	</body>
 </html>

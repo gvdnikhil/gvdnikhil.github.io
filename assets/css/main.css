@@ -627,7 +627,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   border-bottom: 1px solid #f1f1f1;
   text-decoration: none;
   display: inline-block;
-  float: left;
+  
   clear: both;
   position: relative;
   outline: 0;
@@ -1146,3 +1146,8 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 #copyright p a:hover {
   color: #00b4d9;
 }
+
+
+
+
+
