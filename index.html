@@ -20,18 +20,40 @@
 		<link rel="stylesheet" type="text/css" href="assets/fonts/simple-line-icons.css">
 		<!-- Slicknav -->
 		<link rel="stylesheet" type="text/css" href="assets/css/slicknav.css">
-		<!-- Menu CSS -->
-		<link rel="stylesheet" type="text/css" href="assets/css/menu_sideslide.css">
-		<!-- Slider CSS -->
-		<link rel="stylesheet" type="text/css" href="assets/css/slide-style.css">
 		<!-- Nivo Lightbox -->
 		<link rel="stylesheet" type="text/css" href="assets/css/nivo-lightbox.css" >
 		<!-- Animate -->
 		<link rel="stylesheet" type="text/css" href="assets/css/animate.css">
 		<!-- Main Style -->
 		<link rel="stylesheet" type="text/css" href="assets/css/main.css">
-		<!-- Responsive Style -->
-		<link rel="stylesheet" type="text/css" href="assets/css/responsive.css"
+		<!-- Responsive Style -->		
+		<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+		
+		
+		<!-- For the contact form using emailjs -->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+		<script type="text/javascript">
+			(function() {
+				// https://dashboard.emailjs.com/admin/account
+				emailjs.init({
+				  publicKey: "c2z_TpS8RGYRC-m7_",
+				});
+			})();
+		</script>
+		<script type="text/javascript">
+			window.onload = function() {
+				document.getElementById('contact-form').addEventListener('submit', function(event) {
+					event.preventDefault();
+					// these IDs from the previous steps
+					emailjs.sendForm('service_3v8qm3x', "template_h9fisi5",this)
+						.then(() => {
+							console.log('SUCCESS!');
+						}, (error) => {
+							console.log('FAILED...', error);
+						});
+				});
+			}
+		</script>
 
 	</head>
 	<body>
@@ -374,38 +396,18 @@
 	
 					<div class="col-lg-6">
 						<!-- form fields -->
-						<form onsubmit="sendEmail(); return false;">
-							<input id="name" type="text" class="form-control form-control-lg" placeholder="Name">
-							<input id="email" type="email" class="form-control mt-3" placeholder="Email">
-							<input id="subject" type="text" class="form-control mt-3" placeholder="Subject">
+						<form id="contact-form">
+							<input id="name" name="user_name" type="text" class="form-control form-control-lg" placeholder="Name" required>
+							<input id="email"  name="user_email" type="email" class="form-control mt-3" placeholder="Email" required>
+							<input id="Contact" name="contact_number"  type="number" class="form-control mt-3" placeholder="Contact">
+
 							<div class="mb-3 mt-3">
-								<textarea id="message" class="form-control" rows="4" name="text" placeholder="Message"></textarea>
+								<textarea name="message" id="message" class="form-control" rows="4" name="text" placeholder="Message"></textarea>
 							</div>
 					
 							<button type="submit" class="btn btn-success mt-3">Contact Me</button>
 						</form>
 					</div>
-					<script src="path-to-emailjs-library.js"></script>
-
-					<script>
-						function sendEmail(){
-									Email.send({
-										Host : "smtp-relay.brevo.com",
-									Username: "gvdnikhil@gmail.com",
-									Password: "F90QAK4EUvN7rLHO",
-									To : 'gvdnikhil@gmail.com',
-									From: "gvdnikhil@gmail.com",
-									Subject: "New Contact Form Enquiry",
-									Body: "Name: "+ document.getElementById("name").value
-									+ "<br> Email: " + document.getElementById("email").value
-									
-									
-									+ "<br> Message: "+ document.getElementById("message").value
-									}).then(
-									message => alert("Message Sent Succesfully") 
-									);
-							}
-					</script>
 	
 				</div>
 			</div>
@@ -460,9 +462,6 @@
 		<script src="assets/js/nivo-lightbox.js"></script>
 		<script src="assets/js/jquery.slicknav.js"></script>
 		<script src="assets/js/main.js"></script>
-		<script src="assets/js/form-validator.min.js"></script>
-		<script src="assets/js/contact-form-script.min.js"></script>
-		<script src="assets/js/map.js"></script>
 		<script src="https://smtpjs.com/v3/smtp.js">
 		</script>
 		
